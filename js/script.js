@@ -19,28 +19,21 @@ function buscarCep() {
 
 function exibirEndereco(dados) {
 
-
-
     let resultado = document.querySelector('#resultado');
+    let resultado404 = document.querySelector('#resultado404');
     var btn = document.querySelector("#btn-pesquisa")
     let container = document.querySelector('.container')
 
     resultado.style.display = 'flex';
 
-
-    /*btn.addEventListener('click', function(){
-        if(resultado.style.display === 'none') {
-            resultado.style.display = 'block';
-        } else {
-            resultado.style.display = 'block';
-        }
-    })*/
-
-
     if (dados.erro) {
-        resultado.innerHTML = "Endereço não localizado!";
+
+        container.style.display = 'none';
+        resultado.innerHTML = ` <p>Endereço não localizado!</p>
+                                <button class ="new2" onClick="window.location.reload()" >Nova consulta</button>`
     } else {
 
+        resultado.style.marginTop = 'auto';
         container.style.display = 'none';
 
         cep.value = '';
@@ -52,12 +45,3 @@ function exibirEndereco(dados) {
                             <button class ="new" onClick="window.location.reload()" >Nova consulta</button>`
     }
 }
-
-/*function alterarCss(resultado){
-    resultado.style.padding = 10;
-    resultado.style.margintop = 10;
-    resultado.style.background = rgb(219, 219, 211);
-    resultado.style.border = 1; solid ;gray;
-    resultado.style.borderradius = 10;
-    resultado.style.boxshadow = 2 ;2 ;gray;
-}*/
